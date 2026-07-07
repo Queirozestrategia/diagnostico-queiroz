@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -25,11 +26,11 @@ export default function Home() {
             <h1 className="mt-8 text-4xl md:text-5xl font-bold text-white leading-tight">
               Antes de crescer,
               <br />
-              Descubra o verdadeiro nível de maturidade da sua empresa.
+              entenda o potencial real do seu negócio.
             </h1>
 
             <p className="mt-6 max-w-3xl text-xl text-slate-300">
-              Em poucos minutos, identifique riscos, oportunidades e receba um plano de ação estratégico para acelerar seus resultados.
+              Avalie a maturidade da sua empresa em poucos minutos e receba um diagnóstico estratégico com recomendações personalizadas para crescimento sustentável.
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mt-10 text-left">
@@ -52,29 +53,24 @@ export default function Home() {
 
             </div>
 
-            <button
-              className="
-              mt-12
-              px-10
-              py-4
-              rounded-xl
-              bg-blue-600
-              hover:bg-blue-700
-              transition-all
-              text-white
-              font-semibold
-              text-lg
-              shadow-lg
-              "
-            >
-             <a
+<Link
   href="/empresa"
-  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl"
+  className="
+  mt-12
+  px-10
+  py-4
+  rounded-xl
+  bg-blue-600
+  hover:bg-blue-700
+  transition-all
+  text-white
+  font-semibold
+  text-lg
+  shadow-lg
+  "
 >
   Iniciar Diagnóstico
-</a>
-            </button>
-
+</Link> 
           </div>
 
         </div>

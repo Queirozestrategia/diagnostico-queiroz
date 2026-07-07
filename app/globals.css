@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: #08162C;
+  border: 1px solid #2563EB;
+  color: white;
+  transition: all 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 10px rgba(59,130,246,.4);
+}
