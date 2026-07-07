@@ -114,9 +114,9 @@ async function carregarEmpresa() {
 
   console.log(data);
 
-  setEmpresaNome(
-    data.empresas?.razao_social || ""
-  );
+    setEmpresaNome(
+  (data as any)?.empresas?.razao_social ?? ""
+);
 }
 async function carregarRespostas() {
 
