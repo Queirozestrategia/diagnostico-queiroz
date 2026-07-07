@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 import Image from "next/image";
 
-export default function DiagnosticoPage() {
+function DiagnosticoContent() {
 
   const searchParams = useSearchParams();
 
@@ -562,5 +562,19 @@ ${ respostas[pergunta.id] === nota
 
     </div>
 
+    );
+}
+
+export default function DiagnosticoPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#02142b] flex items-center justify-center text-white">
+          Carregando diagnóstico...
+        </div>
+      }
+    >
+      <DiagnosticoContent />
+    </Suspense>
   );
 }
