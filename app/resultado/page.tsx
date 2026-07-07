@@ -89,7 +89,7 @@ console.log(diagnosticoId);
 
 
     setEmpresa(
-  diagnostico.empresas?.razao_social || ""
+  (diagnostico as any)?.empresas?.razao_social ?? ""
 );
 
     const { data: respostas } =
