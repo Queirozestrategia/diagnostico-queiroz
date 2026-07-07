@@ -1,18 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import {classificarMaturidade} from "../../lib/classificacao";
 import Image from "next/image";
 
-export default function ResultadoPage() {
+function ResultadoContent() {
 
-  const searchParams = useSearchParams();
+  const [diagnosticoId, setDiagnosticoId] = useState<string | null>(null);
 
-  const diagnosticoId =
-    searchParams.get("id");
+useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  setDiagnosticoId(params.get("id"));
+}, []);
 
+  if (!diagnosticoId) {
+  return null;
+}
   const [empresa, setEmpresa] =
     useState("");
 
@@ -1578,4 +1582,18 @@ shadow-xl
 
  )
 
-} 
+}
+
+export default function ResultadoPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#02142b] flex items-center justify-center text-white">
+          Gerando relatório...
+        </div>
+      }
+    >
+      <ResultadoContent />
+    </Suspense>
+  );
+}

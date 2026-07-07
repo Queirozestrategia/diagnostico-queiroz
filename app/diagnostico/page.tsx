@@ -1,17 +1,22 @@
 "use client";
 
+
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { supabase } from "../../lib/supabase";
 import Image from "next/image";
 
 function DiagnosticoContent() {
 
-  const searchParams = useSearchParams();
+  const [diagnosticoId, setDiagnosticoId] = useState<string | null>(null);
 
-  const diagnosticoId =
-    searchParams.get("id");
+useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  setDiagnosticoId(params.get("id"));
+}, []);
 
+if (!diagnosticoId) {
+  return null;
+}
   const [etapa, setEtapa] = useState(1);
 
   const [perguntas, setPerguntas] =
