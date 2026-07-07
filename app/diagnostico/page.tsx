@@ -22,7 +22,7 @@ export default function DiagnosticoPage() {
 
     const [respostas, setRespostas] =
     useState<Record<number, number>>({});
-  const cores = {
+  const cores: Record<number, string> = {
   1: "border-red-500 text-red-500",
   2: "border-orange-500 text-orange-500",
   3: "border-yellow-400 text-yellow-400",
