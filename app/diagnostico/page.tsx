@@ -14,9 +14,7 @@ useEffect(() => {
   setDiagnosticoId(params.get("id"));
 }, []);
 
-if (!diagnosticoId) {
-  return null;
-}
+
   const [etapa, setEtapa] = useState(1);
 
   const [perguntas, setPerguntas] =
